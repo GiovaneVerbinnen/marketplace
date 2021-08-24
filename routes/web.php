@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/model', function () {
     return \App\User::paginate(10);
 });
+
+Route::get('/admin/stores', 'Admin\\StoreController@index');
