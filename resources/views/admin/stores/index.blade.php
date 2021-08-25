@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('content')
+<h1 class="display-4">Lojas</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<a href="{{ route('admin.stores.create') }}" class="btn btn-lg btn-primary my-2">Criar Loja</a>
 
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Loja</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach ($stores as $store)
-            <tr>
-                <th>{{ $store->id }}</th>
-                <th>{{ $store->name }}</th>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    {{ $stores->links() }}
-</body>
-
-</html>
+<table class="table table-sriped my-4">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Loja</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($stores as $store)
+        <tr>
+            <td>{{ $store->id }}</td>
+            <td>{{ $store->name }}</td>
+            <td>
+                <a href="{{ route('admin.stores.edit', ['store' => $store->id]) }}"
+                    class="btn btn-sm btn-warning">Editar</a>
+                <a href="{{ route('admin.stores.destroy', ['store' => $store->id]) }}"
+                    class="btn btn-sm btn-danger">Remover</a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+{{ $stores->links() }}
+@endsection
