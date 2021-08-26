@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -41,10 +41,10 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param   App\Http\Requests\ProductRequest; $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
 
@@ -84,11 +84,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\ProductRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $product)
+    public function update(ProductRequest $request, $product)
     {
         $data = $request->all();
 
