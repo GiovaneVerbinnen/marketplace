@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>Criar Produto</h1>
-<form action="{{ route('admin.products.store') }}" method="POST">
+<form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label>Nome Produto</label>
@@ -58,6 +58,10 @@
 
             @endforeach
         </select>
+    </div>
+
+    <div class="formgroup"><label>Fotos do Produto</label><input type="file" name="photos[]" class="form-control"
+            multiple>
     </div>
 
     <div class="form-group">

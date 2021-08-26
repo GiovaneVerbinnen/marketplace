@@ -4,7 +4,7 @@
 
 <a href="{{ route('admin.products.create') }}" class="btn btn-lg btn-primary my-2">Criar Produto</a>
 
-<table class="table table-sriped my-4">
+<table class="table table-sriped my-4 table-bordered table-hover table-sm">
     <thead>
         <tr>
             <th>#</th>
