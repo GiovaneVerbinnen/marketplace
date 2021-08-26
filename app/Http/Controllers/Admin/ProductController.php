@@ -107,8 +107,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($product)
     {
-        //
+        $product = $this->product->find($product);
+
+        $product->delete();
+
+        flash('Produto removido com sucesso!')->success();
+
+        return redirect()->route('admin.products.index');
     }
 }
