@@ -37,7 +37,15 @@
         </div>
         @enderror
     </div>
+    <div class="form-group">
+        <label for="">Categories</label>
+        <select name="categories[]" class="form-control" multiple>
+            @foreach ($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
 
+            @endforeach
+        </select>
+    </div>
 
     <div class="form-group">
         <label>Preço</label>
