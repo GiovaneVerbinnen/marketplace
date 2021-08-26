@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1 class="display-4">Lojas</h1>
+<h1 class="display-4">Produtos</h1>
 
 <a href="{{ route('admin.products.create') }}" class="btn btn-lg btn-primary my-2">Criar Produto</a>
 
@@ -10,6 +10,7 @@
             <th>#</th>
             <th>Nome</th>
             <th>Preço</th>
+            <th>Loja</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -19,6 +20,7 @@
             <td>{{ $p->id }}</td>
             <td>{{ $p->name }}</td>
             <td>R$ {{ number_format($p->price, 2, ',', '.') }}</td>
+            <td>{{ $p->store->name }}</td>
             <td>
                 <div class="btn-group">
                     <a href="{{ route('admin.products.edit', ['product' => $p->id]) }}"
