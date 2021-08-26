@@ -4,7 +4,7 @@
 <form action="{{ route('admin.products.store') }}" method="POST">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="form-group">
-        <label for="name">Nome da Loja</label>
+        <label for="name">Nome do produto</label>
         <input class="form-control" name="name" type="text">
     </div>
     <div class="form-group">
@@ -32,7 +32,7 @@
         </select>
     </div>
     <div>
-        <button type="submit" class="btn btn-lg btn-success">Criar Loja</button>
+        <button type="submit" class="btn btn-lg btn-success">Criar Produto</button>
     </div>
 </form>
 @endsection
