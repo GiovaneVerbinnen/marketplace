@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('stores', 'StoreController');
         Route::resource('products', 'ProductController');
         Route::resource('categories', 'CategoryController');
+
+        Route::post('photos/remove', 'ProductPhotoController@removePhoto')->name('photo.remove');
     });
 });
 
