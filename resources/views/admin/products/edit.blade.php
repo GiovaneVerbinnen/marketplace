@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <h1>Atualizar Produto</h1>
-<form action="{{ route('admin.products.update', ['product' => $product->id]) }}" method="POST">
+<form action="{{ route('admin.products.update', ['product' => $product->id]) }}" method="POST"
+    enctype="multipart/form-data">
     {{-- <input type="hidden" name="_token" value="{{csrf_token()}}">
     <input type="hidden" name="_method" value="PUT"> --}}
     @csrf
@@ -70,6 +71,10 @@
         </select>
     </div>
 
+    <div class="formgroup"><label>Fotos do Produto</label><input type="file" name="photos[]" class="form-control"
+            multiple>
+    </div>
+
     <div class="form-group">
         <label>Slug</label>
         <input type="text" name="slug" class="form-control" value="{{$product->slug}}">
@@ -77,6 +82,14 @@
 
     <div>
         <button type=" submit" class="btn btn-lg btn-success">Atualizar Produto</button>
+    </div>
+    <hr>
+    <div class="row">
+        @foreach ($product->photos as $photo)
+        <div class="col-4">
+            <img src="{{ asset('storage/' . $photo->image) }}" alt="" class="img-fluid">
+        </div>
+        @endforeach
     </div>
 </form>
 @endsection
