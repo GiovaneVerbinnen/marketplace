@@ -32,10 +32,7 @@
         <img src="{{ asset('storage/' . $store->logo) }}" style="max-width:350px; margin: 10px 0px;">
     </div>
 
-    <div class="form-group">
-        <label for="slug">Slug</label>
-        <input class="form-control" name="slug" type="text" value="{{ $store->slug }}">
-    </div>
+
 
     <div class="form-group">
         <button type="submit" class="btn btn-lg btn-primary">Atualizar Loja</button>

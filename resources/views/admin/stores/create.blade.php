@@ -38,20 +38,14 @@
 
 
     <div class="formgroup">
-        <label>Logo</label><input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror">
+        <label>Logo</label>
+        <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror">
     </div>
     @error('logo')
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
 
-    <div class="form-group">
-        <label for="slug">Slug</label>
-        <input class="form-control @error('slug') is-invalid @enderror" name="slug" type="text"
-            value="{{ old('slug')}}">
-        @error('slug')
-        <span class="invalid-feedback"> {{$message}}</span>
-        @enderror
-    </div>
+
     <div class="form-group">
         <label for="">Usuario</label>
         <select name="user" id="user" class="form-control">
