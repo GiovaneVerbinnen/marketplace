@@ -71,8 +71,11 @@
         </select>
     </div>
 
-    <div class="formgroup"><label>Fotos do Produto</label><input type="file" name="photos[]" class="form-control"
-            multiple>
+    <div class="formgroup"><label>Fotos do Produto</label><input type="file" name="photos[]"
+            class="form-control @error('photos') is-invalid @enderror" multiple>
+        @error('photos')
+        <div class="invalid-feedback">{{$message}}</div>
+        @enderror
     </div>
 
     <div class="form-group">

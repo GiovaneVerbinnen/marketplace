@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'phone' => 'required',
             'mobile_phone' => 'required',
             'name' => 'required',
+            'logo' => 'image',
         ];
     }
 }
