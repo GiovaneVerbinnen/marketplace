@@ -2,26 +2,30 @@
 
 @section('content')
 
-<div class="row my-4">
-    <div class="col-12">
-        <h2>Lojas Destaque</h2>
-        <hr>
-    </div>
-    @foreach ($stores as $store)
-    <div class="col-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 row-cols-1 row-cols-md-3 ">
+
+    <div class="col-6">
         @if ($store->logo)
         <img src="{{ asset('storage/' . $store->logo) }}" class="img-fluid">
         @else
         <img src="https://via.placeholder.com/250X100.png?text=logo" alt="" class="img-fluid">
         @endif
-        <h3>{{$store->name}}</h3>
-        <p>{{$store->description}}</p>
-        <a href="{{route('store.single', ['slug' => $store->slug])}}" class="btn btn-sm btn-primary">Ver Loja</a>
+        <h2>{{ $store->name}}</h2>
     </div>
-    @endforeach
-</div>
-<div class="row row-cols-1 row-cols-md-3 g-4 row-cols-1 row-cols-md-3">
-    @foreach ($products as $key => $product)
+    <div class="col-6">
+        <p>{{ $store->description}}</p>
+
+        <p>
+            <strong>Contatos: </strong>
+            <span>{{ $store->phone . '|' . $store->mobile_phone}}</span>
+        </p>
+    </div>
+
+
+    <div class="col-12">
+        <h4>Produtos desta loja</h4>
+    </div>
+    @forelse ($store->products as $key => $product)
     <div class="col-xs-12 col-md-6 col-lg-4 mb-4">
         <div class="card mx-auto" style="width: 100%;">
             @if ($product->photos->count())
@@ -48,7 +52,14 @@
     </div>
     {{-- @if(($key + 1) % 3 == 0) </div>
 <div class="row"> @endif --}}
-    @endforeach
+
+    @empty
+    <div class="col-12">
+        <p class="alert alert-warning">
+            Sem produtos para essa loja.
+        </p>
+    </div>
+    @endforelse
 </div>
 
 
